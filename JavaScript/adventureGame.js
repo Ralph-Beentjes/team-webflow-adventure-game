@@ -10,12 +10,9 @@ let liedOnResume = false;
 let usedAI = false;
 let userChoiceSecondChallenge = '';
 let knowsAboutPuppies = false;
-let userChoiceThirdChallenge = '';
+let talksAboutHobbies = false;
 
 function firstChallenge(){
-    liedOnResume = false;
-    usedAI = false;
-    
     let userInput = prompt('Fred needs to write the best possible resume to get the job. What should he do?\n\n' +
         '1. Write a resume that is honest and talks about his lackluster skills and experiences, but with a certain charm and humor\n' +
         '2. Write a resume that is full of exaggerations and not totally true, but makes him look like a perfect candidate\n' +
@@ -55,8 +52,6 @@ function firstChallenge(){
 }
 
 function secondChallenge() {
-    userChoiceSecondChallenge = '';
-
     let userInput = prompt('Fred has been invited to a call with a recruiter. During the call, the recruiter asks him about his skills and previous experiences. What should Fred do?\n\n' +
         '1. Be honest and talk about how he doesn\'t have much experience, but that he is eager to learn\n' +
         '2. Talk about what a great asset to the company he would be, without going into any details\n' +
@@ -98,18 +93,28 @@ function secondChallenge() {
         console.log('Fred still has no idea what he has "done" in the past, but somehow he is through. He has been invited to the next round of interviews at the company headquarters.')
         waitingRoom();
     } else {
-        return "The recruiter saw through Fred's bullshit and he has been rejected. Back to the job market he goes. He can try again  by typing play() and press enter."
+        console.log("The recruiter saw through Fred's bullshit and he has been rejected. Back to the job market he goes. He can try again  by typing play() and press enter.")
+        return;
     }
 
 }
 
 function waitingRoom() {
-    let userInput = prompt('Fred has arrived at the company headquarters and is waiting for his interview in the waiting room. He is quite nervous for the job interview. He can go in right away or choose a couple of options\n\n' +
+    let userInput = prompt('Fred has arrived at the company headquarters and is waiting for his interview in the waiting room. He is quite nervous for the job interview. He can go in right away or choose a couple of options:\n\n' +
         '1. Go into the interview room and face the manager\n' +
         '2. Go to the bathroom and empty his bladder\n' +
         '3. Read a crumpled-up post-it note on the floor\n\n' +
         'Choose option 1, 2 or 3'
     )
+
+    if (userInput !== null) {
+        userInput = userInput.trim();
+    }
+
+    if (userInput === null){
+        console.log('Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.');
+        return;
+    }
 
     switch (userInput) {
         case '1':
@@ -139,22 +144,49 @@ function thirdChallenge() {
         'Choose option 1, 2 or 3'
     )
 
+    if (userInput !== null) {
+        userInput = userInput.trim();
+    }
+
+    if (userInput === null){
+        console.log('Fred chickened out and decided to go home. That will never get him a job. He can try again however, by typing play() and press enter.');
+        return;
+    }
+
     switch (userInput) {
         case '1':
             console.log('He goes back in the waiting room and read more tips about puppies')
             waitingRoom();
             break;
         case '2':
-            console.log('Fred starts talking about his experiences, but the manager isn\'t impressed at all. He rejects Fred before he can even explain himself. Good luck on your next application, type play() and press enter');
+            console.log ('Fred starts talking about his experiences, but the manager isn\'t impressed at all. He rejects Fred before he can even explain himself. Good luck on your next application, type play() and press enter');
+            return;
             break;
         case '3':
-            console.log('C')
+            console.log('Fred decided to take another route and talk about hobbies and pets instead. Is that a right decision?')
+            talksAboutHobbies = true;
+            break;
+        default:
+            alert('Please choose a valid option')
+            thirdChallenge();
+    }
+
+    if (knowsAboutPuppies && talksAboutHobbies){
+        console.log ('What a masterstroke from Fred! He started talking about puppies. The only thing in life that brings joy to the Evil Manager. He offers him a job straight away! With a laptop of course.');
+        return;
+    } else {
+        console.log ('What was Fred thinking? Talking about bouldering and kittens? He was rejected on the spot. Try your luck at another company, type play() and press enter.');
+        return;
     }
 }
     
 
 function play() {
+    liedOnResume = false;
+    usedAI = false;
+    userChoiceSecondChallenge = '';
     knowsAboutPuppies = false;
+    talksAboutHobbies = false;
     
     firstChallenge();
 }
