@@ -9,6 +9,8 @@ console.log('Fred is just done with college and is looking for a job in the IT-s
 let liedOnResume = false;
 let usedAI = false;
 let userChoiceSecondChallenge = '';
+let knowsAboutPuppies = false;
+let userChoiceThirdChallenge = '';
 
 function firstChallenge(){
     liedOnResume = false;
@@ -102,11 +104,58 @@ function secondChallenge() {
 }
 
 function waitingRoom() {
-    let userInput = prompt('Fred has arrived at the company headquarters and is waiting for his interview in the waiting room. He is q')
-    
+    let userInput = prompt('Fred has arrived at the company headquarters and is waiting for his interview in the waiting room. He is quite nervous for the job interview. He can go in right away or choose a couple of options\n\n' +
+        '1. Go into the interview room and face the manager\n' +
+        '2. Go to the bathroom and empty his bladder\n' +
+        '3. Read a crumpled-up post-it note on the floor\n\n' +
+        'Choose option 1, 2 or 3'
+    )
+
+    switch (userInput) {
+        case '1':
+            console.log('Fred decided to go into the interview room and face the manager. He is nervous, but ready to show what he can do.')
+            thirdChallenge();
+            break;
+        case '2':
+            console.log('Fred decided to go to the bathroom and empty his bladder.')
+            waitingRoom();
+            break;
+        case '3':
+            console.log('Fred decided to read a crumpled-up post-it note on the floor. He learns that the manager is a big fan of puppies')
+            knowsAboutPuppies = true;
+            waitingRoom();
+            break;
+        default:
+            alert('Please choose a valid option')
+            waitingRoom();
+    }
 }
 
+function thirdChallenge() {
+    let userInput = prompt('Fred steps into the interview room and looks straight into the joyless eyes of the Evil Manager. The manager says nothing and waits for Fred to start talking. What should Fred do?\n\n' +
+        '1. Fred decides he isn\'t actually ready yet and returns to the waiting room\n' +
+        '2. Fred starts to talk about his experiences and skills, like a proper potential employee\n' +
+        '3. Fred starts to talk about the little joys in life, like hobbies and pets\n\n' +
+        'Choose option 1, 2 or 3'
+    )
+
+    switch (userInput) {
+        case '1':
+            console.log('He goes back in the waiting room and read more tips about puppies')
+            waitingRoom();
+            break;
+        case '2':
+            console.log('Fred starts talking about his experiences, but the manager isn\'t impressed at all. He rejects Fred before he can even explain himself. Good luck on your next application, type play() and press enter');
+            break;
+        case '3':
+            console.log('C')
+    }
+}
+    
+
 function play() {
+    knowsAboutPuppies = false;
+    
     firstChallenge();
 }
 
