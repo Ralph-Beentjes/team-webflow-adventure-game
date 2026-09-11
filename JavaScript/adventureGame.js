@@ -12,6 +12,15 @@ let userChoiceSecondChallenge = '';
 let knowsAboutPuppies = false;
 let talksAboutHobbies = false;
 
+function endGame(message) {
+    console.log(message);
+    if (confirm(message)) {
+        play();
+    } else {
+        console.log('Thanks for playing! Goodbye.');
+    }
+}
+
 function firstChallenge(){
     let userInput = prompt('Fred needs to write the best possible resume to get the job. What should he do?\n\n' +
         '1. Write a resume that is honest and talks about his lackluster skills and experiences, but with a certain charm and humor\n' +
@@ -81,6 +90,9 @@ function secondChallenge() {
             console.log('Fred decided to lie about his experiences and skills. He is a great asset to the company and will be a great fit for the team.')
             userChoiceSecondChallenge = '3';
         break;
+        default:
+            alert('Please choose a valid option')
+            secondChallenge();
     }
 
     if (liedOnResume == false && userChoiceSecondChallenge == '1') {
@@ -92,8 +104,9 @@ function secondChallenge() {
     } else if (usedAI && userChoiceSecondChallenge == '2') {
         console.log('Fred still has no idea what he has "done" in the past, but somehow he is through. He has been invited to the next round of interviews at the company headquarters.')
         waitingRoom();
+        
     } else {
-        console.log("The recruiter saw through Fred's bullshit and he has been rejected. Back to the job market he goes. He can try again  by typing play() and press enter.")
+        endGame("The recruiter saw through Fred's bullshit and he has been rejected. Back to the job market he goes. He can try again by pressing OK.")
         return;
     }
 
@@ -112,7 +125,7 @@ function waitingRoom() {
     }
 
     if (userInput === null){
-        console.log('Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.');
+        console.log("Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.");
         return;
     }
 
@@ -149,7 +162,7 @@ function thirdChallenge() {
     }
 
     if (userInput === null){
-        console.log('Fred chickened out and decided to go home. That will never get him a job. He can try again however, by typing play() and press enter.');
+        endGame("Fred chickened out and decided to go home. That will never get him a job. He can try again however, by typing play() and press enter.");
         return;
     }
 
@@ -159,7 +172,7 @@ function thirdChallenge() {
             waitingRoom();
             break;
         case '2':
-            console.log ('Fred starts talking about his experiences, but the manager isn\'t impressed at all. He rejects Fred before he can even explain himself. Good luck on your next application, type play() and press enter');
+            endGame("Fred starts talking about his experiences, but the manager isn't impressed at all. He rejects Fred before he can even explain himself. Good luck on your next application,  press OK to try again.");
             return;
             break;
         case '3':
@@ -172,10 +185,10 @@ function thirdChallenge() {
     }
 
     if (knowsAboutPuppies && talksAboutHobbies){
-        console.log ('What a masterstroke from Fred! He started talking about puppies. The only thing in life that brings joy to the Evil Manager. He offers him a job straight away! With a laptop of course.');
+        endGame('What a masterstroke from Fred! He started talking about puppies. The only thing in life that brings joy to the Evil Manager. He offers him a job straight away! With a laptop of course. Fred can celebrate, or play again by pressing OK.');
         return;
     } else {
-        console.log ('What was Fred thinking? Talking about bouldering and kittens? He was rejected on the spot. Try your luck at another company, type play() and press enter.');
+        endGame("What was Fred thinking? Talking about bouldering and kittens? He was rejected on the spot. Press OK to try your luck at another company.");
         return;
     }
 }
