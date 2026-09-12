@@ -34,7 +34,7 @@ function firstChallenge(){
     }
 
     if (userInput === null){
-        endGame('Fred is too scared to make a decision and does nothing. This way he will never get a job. He can try again however, by typing play() and press enter.');
+        console.log('Fred is too scared to make a decision and does nothing. This way he will never get a job. He can try again however, by typing play() and press enter.');
         return;
     }
 
@@ -73,7 +73,7 @@ function secondChallenge() {
     }
 
     if (userInput === null){
-        endGame('Fred has a blackout and says absolutely nothing. That won\'t help him get a job whatsoever. He can try again however, by typing play() and press enter.');
+        console.log('Fred has a blackout and says absolutely nothing. That won\'t help him get a job whatsoever. He can try again however, by typing play() and press enter.');
         return;
     }
 
@@ -125,7 +125,7 @@ function waitingRoom() {
     }
 
     if (userInput === null){
-        endGame("Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.");
+        console.log("Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.");
         return;
     }
 
