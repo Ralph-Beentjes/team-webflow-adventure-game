@@ -4,7 +4,7 @@ alert('💸 WELCOME TO THE JOB MARKET 🎮\n\n' +
     'Mac: Cmd + Option + J')
 
 console.log('Fred is just done with college and is looking for a job in the IT-sector. After trying again and again, he is still unemployed, but now he has spotted maybe his dream job.\n' +
-    'It\'s your job to make sure Fred gets the job. But it will certainly not be easy, as there are many obstacles in his way. If you are sure you can help him, type in play() and press enter')
+    'It\'s your task to make sure Fred gets dev role. But it will certainly not be easy, as there are many obstacles in his way. If you are sure you can help him, type in play() and press enter')
 
 let liedOnResume = false;
 let usedAI = false;
@@ -34,7 +34,7 @@ function firstChallenge(){
     }
 
     if (userInput === null){
-        console.log('Fred is too scared to make a decision and does nothing. This way he will never get a job. He can try again however, by typing play() and press enter.');
+        endGame('Fred is too scared to make a decision and does nothing. This way he will never get a job. He can try again however, by typing play() and press enter.');
         return;
     }
 
@@ -73,7 +73,7 @@ function secondChallenge() {
     }
 
     if (userInput === null){
-        console.log('Fred has a blackout and says absolutely nothing. That won\'t help him get a job whatsoever. He can try again however, by typing play() and press enter.');
+        endGame('Fred has a blackout and says absolutely nothing. That won\'t help him get a job whatsoever. He can try again however, by typing play() and press enter.');
         return;
     }
 
@@ -125,7 +125,7 @@ function waitingRoom() {
     }
 
     if (userInput === null){
-        console.log("Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.");
+        endGame("Fred chickened out and decided to leave the building. That will never get him a job. He can try again however, by typing play() and press enter.");
         return;
     }
 
